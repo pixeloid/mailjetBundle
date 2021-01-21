@@ -1,0 +1,4 @@
+suites:
+    default:
+        namespace: Mailjet\MailjetBundle
+        psr4_prefix: Mailjet\MailjetBundle
