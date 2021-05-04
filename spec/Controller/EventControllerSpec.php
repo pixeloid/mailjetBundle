@@ -27,7 +27,7 @@ class EventControllerSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Mailjet\MailjetBundle\Controller\EventController');
-        $this->shouldHaveType('Symfony\Bundle\FrameworkBundle\Controller\AbstractController');
+        $this->shouldHaveType('Symfony\Bundle\FrameworkBundle\Controller\Controller');
 
     }
 
@@ -120,7 +120,7 @@ class EventControllerSpec extends ObjectBehavior
         $container->get('event_dispatcher')->shouldBeCalled()->willReturn($eventDispatcher);
 
         $eventDispatcher->dispatch(new CallbackEvent(json_decode($data, true)[0]), CallbackEvent::EVENT_SENT)->shouldBeCalled();
-        $eventDispatcher->dispatch(new CallbackEvent(json_decode($data, true)[1]), CallbackEvent::EVENT_SENT)->shouldBeCalled();
+        $eventDispatcher->dispatch(new CallbackEvent(json_decode($data, true)[1]),CallbackEvent::EVENT_SENT)->shouldBeCalled();
 
         $this->indexAction($request, '12345678');
     }
