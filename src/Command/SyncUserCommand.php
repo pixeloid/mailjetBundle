@@ -34,12 +34,13 @@ class SyncUserCommand extends Command
 
     /**
      * @param ContactsListSynchronizer $synchronizer
-     * @param array                    $lists
+     * @param ContainerInterface $container
+     * @param array $lists
      */
     public function __construct(
         ContactsListSynchronizer $synchronizer,
-        array $lists = [],
-        ContainerInterface $container
+        ContainerInterface $container,
+        array $lists = []
     ) {
         $this->synchronizer = $synchronizer;
         $this->lists        = $lists;
